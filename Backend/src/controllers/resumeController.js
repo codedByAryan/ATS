@@ -24,6 +24,8 @@ export const uploadResume = async (req, res) => {
       console.log("Text extraction failed:", parseError.message);
     }
 
+    console.log("FINAL extractedText:", extractedText);
+
     const resume = await Resume.create({
       user: req.user._id,
       originalName: req.file.originalname,

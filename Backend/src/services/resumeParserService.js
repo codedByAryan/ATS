@@ -1,30 +1,28 @@
 import fs from "fs";
 import mammoth from "mammoth";
-import { createRequire } from "module";
-
-const require = createRequire(import.meta.url);
-const pdfParse = require("pdf-parse");
+import * as pdfjsLib from "pdfjs-dist/legacy/build/pdf.mjs";
 
 export const extractTextFromResume = async (filePath, originalName) => {
   const lowerName = originalName.toLowerCase();
 
   if (lowerName.endsWith(".pdf")) {
     const buffer = fs.readFileSync(filePath);
+    const uint8Array = new Uint8Array(buffer);
 
-    const data = await pdfParse(buffer);
+    const pdf = await pdfjsLib.getDocument({ data: uint8Array }).promise;
+    let fullText = "";
 
-    console.log("PDF Extracted Length:", data.text ? data.text.length : 0);
-    console.log("PDF Extracted Preview:", data.text ? data.text.slice(0, 300) : "");
-
-    return data.text ? data.text.trim() : "";
+    for (let i = 1; i <= pdf.numPages; i++) {
+      const page = await pdf.getPage(i);
+      const content = await page.getTextContent();
+      const pageText = content.items.map((item) => item.str).join(" ");
+      fullText += pageText + "\n";
+    }
+    return fullText.trim();
   }
 
   if (lowerName.endsWith(".docx")) {
     const result = await mammoth.extractRawText({ path: filePath });
-
-    console.log("DOCX Extracted Length:", result.value ? result.value.length : 0);
-    console.log("DOCX Extracted Preview:", result.value ? result.value.slice(0, 300) : "");
-
     return result.value ? result.value.trim() : "";
   }
 
