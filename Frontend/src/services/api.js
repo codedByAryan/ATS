@@ -10,7 +10,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "https://ats-backend-yni1.onrender.com/api"
+  baseURL: "https://ats-backend-6hx6.onrender.com/api"
 });
 
 export default API;
