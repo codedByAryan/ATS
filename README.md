@@ -118,12 +118,12 @@ npm run dev
 ## 📸 Screenshots
 
 <p align="center">
-  <img src="screenshots/dashboard.png" width="45%" />
-  <img src="screenshots/analysis.png" width="45%" />
+  <img src="screenshots/dashboard.png.png" width="45%" />
+  <img src="screenshots/home.png.png" width="45%" />
 </p>
 
 <p align="center">
-  <img src="screenshots/upload.png" width="60%" />
+  <img src="screenshots/upload.png.png" width="60%" />
 </p>
 
 ---
