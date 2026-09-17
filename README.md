@@ -1,121 +1,101 @@
-# 🚀 AI Resume Analyzer (ATS Optimization Tool)
+# AI Resume Analyzer (ATS Optimization Tool)
 
----
+## Overview
 
-## 📌 Overview
+AI Resume Analyzer is a MERN stack tool that checks how well a resume performs against ATS (Applicant Tracking System) rules.
 
-The **AI Resume Analyzer** is a full-stack MERN application designed to evaluate resumes based on **ATS (Applicant Tracking System)** standards.
+In simple terms: you upload a resume + job description, and it tells you how likely your resume is to pass automated screening, along with what's missing.
 
-It helps job seekers optimize their resumes by analyzing keyword matching, formatting, and content quality against job descriptions.
+Most resumes don't even reach a recruiter because ATS filters them out early. This project focuses on fixing that gap by breaking down keywords, structure, and content alignment.
 
-💡 **Problem it solves:**
-Many resumes get rejected by ATS systems before reaching recruiters. This tool improves resume visibility and ranking.
+## What it does
 
----
+- Takes a resume (PDF upload)
+- Extracts and parses content
+- Compares it with a job description
+- Calculates an ATS match score
+- Highlights missing keywords
+- Gives practical improvement suggestions instead of generic advice
+- Runs analysis in real time
 
-## ✨ Features
+## Live Demo
 
-* 📄 Resume Upload & Parsing
-* 🧠 ATS Score Calculation
-* 🔍 Keyword Matching with Job Description
-* 📊 Detailed Feedback & Suggestions
-* ✍️ Resume Content Improvement Tips
-* ⚡ Real-time Analysis
-* 🎯 Smart Recommendations for better ranking
+You can try it here: https://ats-kappa-olive.vercel.app/
 
----
+## Tech Stack
 
-## 🌐 Live Demo
+**Frontend**
+- React.js
+- Tailwind CSS
 
-🚀 Experience the application live:  
-👉 https://ats-kappa-olive.vercel.app/
+**Backend**
+- Node.js
+- Express.js
 
----
+**Database**
+- MongoDB
 
-## 🛠️ Tech Stack
+**Core Libraries / Services**
+- [Name your PDF parsing library here — e.g. pdf-parse] for resume extraction
+- [Confirm: OpenAI API, or a local NLP keyword-matching approach — pick one, this shouldn't be an "or"]
+- Axios for API communication
 
-### Frontend
+## How it works (high level)
 
-* React.js
-* Tailwind CSS / CSS
+1. User uploads a resume
+2. Backend extracts raw text from PDF
+3. Job description text is compared with resume content
+4. Keyword overlap + relevance scoring is calculated
+5. System returns:
+   - ATS score
+   - Missing keywords
+   - Suggestions to improve resume
 
-### Backend
+## Setup Instructions
 
-* Node.js
-* Express.js
-
-### Database
-
-* MongoDB
-
-### Other Tools
-
-* OpenAI API (or NLP processing)
-* PDF Parser Libraries
-* Axios
-
----
-
-## ⚙️ Getting Started
-
-### 🔧 Installation
-
-```bash
-# Clone the repository
+Clone the repo:
+```
 git clone https://github.com/codedByAryan/ATS.git
+cd ATS
+```
 
-# Navigate to project folder
-cd your-repo
+Install dependencies:
 
-# Install dependencies (frontend)
+Frontend:
+```
 cd Frontend
 npm install
+```
 
-# Install dependencies (backend)
+Backend:
+```
 cd Backend
 npm install
 ```
 
----
+Run locally:
 
-### ▶️ Run the Application
-
-```bash
-# Start backend
+Backend:
+```
 cd Backend
 node server.js
+```
 
-# Start frontend
+Frontend:
+```
 cd Frontend
 npm run dev
 ```
 
----
+## API Endpoints
 
-## 🚀 Usage
+| Method | Endpoint       | What it does           |
+|--------|----------------|-------------------------|
+| POST   | `/api/upload`  | Upload resume file      |
+| POST   | `/api/analyze` | Run ATS analysis        |
+| GET    | `/api/results` | Fetch saved results     |
 
-1. Upload your resume (PDF format)
-2. Paste or upload job description
-3. Click on **Analyze**
-4. Get:
-
-   * ATS Score 📊
-   * Missing Keywords 🔍
-   * Improvement Suggestions ✍️
-
----
-
-## 🔗 API Endpoints
-
-| Method | Endpoint       | Description            |
-| ------ | -------------- | ---------------------- |
-| POST   | `/api/analyze` | Analyze resume         |
-| POST   | `/api/upload`  | Upload resume file     |
-| GET    | `/api/results` | Fetch analysis results |
-
----
-
-## 📸 Screenshots
+## Screenshots
 
 <p align="center">
   <img src="screenshots/dashboard.png.png" width="45%" />
@@ -127,35 +107,25 @@ npm run dev
   <img src="screenshots/analyze.png" width="45%" />
 </p>
 
----
+## Contributing
 
-## 🤝 Contributing
+If you want to improve this:
 
-Contributions are welcome! 🚀
-
-### Steps:
-
-1. Fork the repository
-2. Create your feature branch
-
-   ```bash
-   git checkout -b feature/YourFeature
+1. Fork it
+2. Create a feature branch
    ```
-3. Commit changes
-4. Push to branch
-5. Open a Pull Request
+   git checkout -b feature/new-feature
+   ```
+3. Make your changes
+4. Push and open a PR
 
----
+Keep changes focused and readable — no unnecessary complexity.
 
-## 👨‍💻 Author
+## Author
 
 **Aryan Chauhan**
-🔗 GitHub: https://github.com/codedByAryan
+GitHub: https://github.com/codedByAryan
 
----
+## Support
 
-## 🌟 Support
-
-If you like this project, give it a ⭐ on GitHub!
-
----
+If you find this useful, star the repo. That's it.
