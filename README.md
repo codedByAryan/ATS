@@ -123,7 +123,8 @@ npm run dev
 </p>
 
 <p align="center">
-  <img src="screenshots/upload.png.png" width="60%" />
+  <img src="screenshots/upload.png.png" width="45%" />
+  <img src="screenshots/analyze.png" width="45%" />
 </p>
 
 ---
